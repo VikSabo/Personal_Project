@@ -75,7 +75,7 @@ li a:hover:not(.active) {
     ESTILO ENTRADA DE DATOS
 ==================================================*/
 input[type=text] {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -83,14 +83,15 @@ input[type=text] {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    display: -webkit-box;
 }
 
 input[type=text]:focus {
-    border: 3px solid #555;
+    border: 2px solid #555;
 }
 
 input[type=number]{
-	width: 100%;
+	width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -98,14 +99,15 @@ input[type=number]{
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    display: -webkit-box;
 }
 
 input[type=number]:focus {
-    border: 3px solid #555;
+    border: 2px solid #555;
 }
 
 textarea {
-    width: 100%;
+    width: 50%;
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -114,11 +116,52 @@ textarea {
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
+    display: -webkit-box;
 }
 
 input:checked {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
+}
+
+.select_style {
+    background: #FFF;
+    overflow: hidden;
+    width: 48%;
+    color: #525252;
+    font-weight: 300;
+    -webkit-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+    -moz-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+    border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+    -webkit-box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+    -moz-box-shadow: 0 0 5px rgba(123,123,123,.2);
+    box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+    border: solid 1px #DADADA;
+    font-family: "helvetica neue",arial;
+    position: relative;
+    cursor: pointer;
+    padding-right:20px;
+
+}
+.select_style span {
+    position: absolute;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background: url(http://projects.authenticstyle.co.uk/niceselect/arrow.png) no-repeat;
+    top: 50%;
+    margin-top: -4px;
+}
+.select_style select {
+    -webkit-appearance: none;
+    appearance:none;
+    width:120%;
+    background:none;
+    background:transparent;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    padding:7px 10px;
 }
 
 .button {
