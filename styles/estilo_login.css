@@ -1,0 +1,100 @@
+
+/*=============================================================
+    Authour: Víctor Saborío hernández 
+
+
+    Proyecto programado para el curso Introducción al desarrollo de aplicaciones
+    Web, 2016.
+   
+    ========================================================  */
+
+
+/*=======================================
+    ESTILO GENERAL
+==================================================*/
+
+body{
+	height:100%;
+    background-image:url(https://s-media-cache-ak0.pinimg.com/564x/c3/63/1c/c3631c8b3ba673f35ed6590bae1a35ae.jpg);
+}
+
+
+/*Aquí dentro meteremos el form del login*/
+.cuadro{
+    background-color: #5F9EA0;
+    height: 450px;
+    width: 600px;
+    border: 5px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+
+/*=======================================
+    ESTILO ENTRADA DE DATOS
+==================================================*/
+input[type=password],input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text],input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/*=======================================
+    IMÁGEN
+==================================================*/
+.avatar {
+    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+    background-image: url('https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg');
+    
+    /* Dibuja un contenedor cuadraro */
+    width: 150px;
+    height: 150px;
+
+    /* llena el contenedor, mantiene el aspecto radio, y lo recorta para que quepa dentro */
+    background-size: cover;
+
+    /* centra la imagen de manera vertical y horizontal */
+    background-position: center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+}
+
+/*=======================================
+    ESTILO FUENTE
+==================================================*/
+h2{
+	font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #22953F;
+}
+
+p{
+	font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #840E0E;
+}
+
+footer{
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+}

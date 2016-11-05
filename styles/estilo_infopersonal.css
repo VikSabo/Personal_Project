@@ -1,0 +1,175 @@
+/*###################################
+  ######
+    
+    Hoja de estilos - Diseñado por Víctor Saborío H.
+    Introducción al desarrollo de aplicaciones Web.
+
+  ####################################################      
+*/		
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height:100%;
+    background-image:url(http://3.bp.blogspot.com/-tqKhuvVHqa0/TnvazcpgaoI/AAAAAAAAljQ/yDOVnbMscak/s400/Texturas-Textures-10.png);
+}
+
+
+/* Div que engloba el contenido de la página menos el footer */
+#wrapper {
+    min-height:100%;
+}
+
+header {
+    display:block;
+    background:#ccc;
+    padding:10px 0px;
+}
+
+section {
+    overflow: auto;
+    /* Definimos el padding inferior:
+       50px del pie de pagina mas 10px de separacion
+    */
+    padding-bottom: 60px;
+    /* Definimos un padding superior */
+    padding-top:30px;
+}
+
+ /*
+ ################################
+ #
+ #  Menu de la página
+ ################################
+*/
+
+.fix{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin:0;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+/*Tablas*/
+.tg  {
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#999;
+}
+.tg td{
+    font-family:Arial, sans-serif;
+    font-size:18px;
+    padding:10px 5px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#999;
+    color:#444;
+    background-color:#F7FDFA;
+}
+.tg th{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal
+    padding:10px 5px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#999;
+    color:#fff;
+    background-color:#26ADE4;
+}
+.tg .tg-t04w{
+    color:#3531ff;
+}
+.tg .tg-kye2{
+    text-align: center;
+    font-weight:bold;
+    font-size:25px;
+    font-family:"Comic Sans MS", cursive, sans-serif !important;;
+    color:#000000
+}
+
+/*Foto de perfil*/
+.circular_shadow {
+    float: left;
+    margin: 0 0 10px 10px; 
+    width: 200px; 
+    height: 100px; 
+    border-radius: 50px; 
+    -webkit-border-radius: 50px; 
+    -moz-border-radius: 50px; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8); 
+}
+
+/*Texto de informacion personal*/
+
+.secciones{
+    font-size: 18px;
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #000000;
+    margin-left: 326px;
+    border: 3px solid black;
+    background-color: #4BBBDA;
+}
+
+h1{
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #22953F;
+}
+
+h2{
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #22953F;
+}
+
+footer{
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+}
+

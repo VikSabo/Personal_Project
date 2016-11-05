@@ -1,0 +1,176 @@
+/*=============================================================
+    Authour: Víctor Saborío hernández 
+
+
+    Proyecto programado para el curso Introducción al desarrollo de aplicaciones
+    Web, 2016.
+   
+    ========================================================  */
+
+/*=======================================
+    ESTILO GENERAL
+==================================================*/
+
+body {
+    margin: 0;
+    background-image:url(https://s-media-cache-ak0.pinimg.com/564x/c3/63/1c/c3631c8b3ba673f35ed6590bae1a35ae.jpg);
+}
+
+/*=======================================
+    ESTILO NAVEGACIÓN
+==================================================*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #BEDA4F;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+	font-family:"Comic Sans MS", cursive, sans-serif !important;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+
+/*=======================================
+    IMAGEN
+==================================================*/
+.avatar {
+    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+    background-image: url('https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg');
+    
+    /* Dibuja un contenedor cuadraro */
+    width: 150px;
+    height: 150px;
+
+    /* llena el contenedor, mantiene el aspecto radio, y lo recorta para que quepa dentro */
+    background-size: cover;
+
+    /* centra la imagen de manera vertical y horizontal */
+    background-position: center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+}
+
+/*=======================================
+    ESTILO ENTRADA DE DATOS
+==================================================*/
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=number]{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=number]:focus {
+    border: 3px solid #555;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+input:checked {
+    height: 30px;
+    width: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+/*=======================================
+    ESTILO FUENTES
+==================================================*/
+h1 {
+	font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: #22953F;
+}
+
+h3 {
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: #22953F;
+}
+
+label{
+	font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #C10E29;
+}
+
+footer{
+    text-align: center;
+    color: #FFFFFF;
+    background: #000000;
+}
