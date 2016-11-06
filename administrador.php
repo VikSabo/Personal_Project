@@ -8,16 +8,22 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //user name and password sent from form
     
-    $myusername = mysqli_real_escape_string($connection, $_POST['username']);
-    $mypassword = mysqli_real_escape_string($connection, $_POST['password']);
+    $nombreProyecto = mysqli_real_escape_string($connection, $_POST['pname']);
+    $selectNewCurso = mysqli_real_escape_string($connection,$_POST['newCurso']);
+    $descripcionProyecto = mysqli_real_escape_string($connection,$_POST['descripcion']);
+    $selectTipoProyecto = mysqli_real_escape_string($connection,$_POST['tipo']);
+    $selectTecnologia = implode(',', $_POST['check_list']);
+    $duracionProyecto = mysqli_real_escape_string($connection,$_POST['pduracion']);
+    
+    // Query to insert data
+    $sql = "INSERT INTO `proyecto`(`nombre_proyecto`, `id_curso`, `descripcion`, `tipo_proyecto`, `tecnología_usada`, `duración`, `imagen`) VALUES ('$nombreProyecto','$selectNewCurso','$descripcionProyecto', '$selectTipoProyecto', '$selectTecnologia', '$duracionProyecto','imagen')";
 
-    //Fecth the user on the database
-    $sql = "SELECT id_admin FROM administrador WHERE nick = '$myusername' AND password = '$mypassword'";
-
-    $result = mysqli_query($connection,$sql);
-    //Execute the query
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-   
+    // Insert the data if the query its ok
+    if ($connection->query($sql) === TRUE) {
+        echo "<div class='success'>El proyecto se ha creado correctamente</div>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $connection->error;
+    }
 
   }
 ?>
@@ -28,11 +34,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/estilo_administrador.css">
+    <link rel="stylesheet" type="text/css" href="style/estilo_general.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function (){
             $("#newCurso").change(function() {
-                // foo is the id of the other select box 
+                // showform is the id of the other select box 
                 if ($(this).val() == "nuevo") {
                     $("#showform").show();
                 }else{
@@ -53,6 +60,7 @@
       <li><a href="inbox.html">Bandeja de Entrada</a></li>
       <li><a class="active" href="administrador.html">Portafolio de Proyectos</a></li>
       <li><a href="edit_infopersonal.html">Información personal</a></li>
+      <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
     <div style="margin-left:18%;padding:1px 16px;height:1000px;">
@@ -64,9 +72,13 @@
         <label for="cname">Curso</label>
         <div class="select_style">
           <select id="newCurso" name="newCurso">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
+            <?php 
+              $sql = "SELECT id_curso,nombre_curso FROM curso";
+              $result = mysqli_query($connection,$sql);
+              while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {                                                 
+                 echo "<option value='".$row['id_curso']."'>".$row['nombre_curso']."</option>";
+              }
+            ?>
             <option value="nuevo">Nuevo Curso</option>
           </select>
           <span></span>
@@ -86,7 +98,7 @@
 
 
         <label>Descripción</label>
-        <textarea>Aquí va el texto</textarea><br>
+        <textarea name="descripcion" placeholder="Descripción del proyecto" ></textarea><br>
 
         <label>Tipo Proyecto</label><br>
         <input type="radio" checked="checked" value="investigacion" name="tipo"> Investigación<br>
@@ -95,10 +107,10 @@
         <input type="radio" value="grupal" name="tipo"> Grupal<br>
 
         <br><label>Tecnologías utilizadas</label><br>
-        <input type="checkbox" checked="checked" value="php"> PHP<br>
-        <input type="checkbox" value="css"> CSS<br>
-        <input type="checkbox" value="js"> Javascript<br>
-        <input type="checkbox" value="mysql"> MySQL<br>
+        <input type="checkbox" checked="checked" value="php" name="check_list[]"> PHP<br>
+        <input type="checkbox" value="css" name="check_list[]"> CSS<br>
+        <input type="checkbox" value="js" name="check_list[]"> Javascript<br>
+        <input type="checkbox" value="mysql" name="check_list[]"> MySQL<br>
 
         <br><label>Duración del proyecto(cantidad de días) *Solamente acepta números</label>
         <input type="number" id="pduracion" name="pduracion"> <br><br>
