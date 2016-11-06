@@ -14,9 +14,19 @@
     $selectTipoProyecto = mysqli_real_escape_string($connection,$_POST['tipo']);
     $selectTecnologia = implode(',', $_POST['check_list']);
     $duracionProyecto = mysqli_real_escape_string($connection,$_POST['pduracion']);
+
+    //save image to folder projects
+    $folder = "images_projects/";
+    move_uploaded_file($_FILES["filep"]["tmp_name"] , "$folder".$_FILES["filep"]["name"]);
+
+    //name of the image
+    $nombreImagen = $_FILES["filep"]["name"];
+
+    $direccionTotal = "images_projects/".$nombreImagen;
+
     
     // Query to insert data
-    $sql = "INSERT INTO `proyecto`(`nombre_proyecto`, `id_curso`, `descripcion`, `tipo_proyecto`, `tecnología_usada`, `duración`, `imagen`) VALUES ('$nombreProyecto','$selectNewCurso','$descripcionProyecto', '$selectTipoProyecto', '$selectTecnologia', '$duracionProyecto','imagen')";
+    $sql = "INSERT INTO `proyecto`(`nombre_proyecto`, `id_curso`, `descripcion`, `tipo_proyecto`, `tecnología_usada`, `duración`, `imagen`) VALUES ('$nombreProyecto','$selectNewCurso','$descripcionProyecto', '$selectTipoProyecto', '$selectTecnologia', '$duracionProyecto','$direccionTotal')";
 
     // Insert the data if the query its ok
     if ($connection->query($sql) === TRUE) {
@@ -65,7 +75,7 @@
 
     <div style="margin-left:18%;padding:1px 16px;height:1000px;">
       <h1>Administrador - Víctor Saborío Hernández</h1>
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
         <label for="pname">Nombre del Proyecto</label>
         <input type="text" id="pname" name="pname"><br>
 
@@ -113,7 +123,11 @@
         <input type="checkbox" value="mysql" name="check_list[]"> MySQL<br>
 
         <br><label>Duración del proyecto(cantidad de días) *Solamente acepta números</label>
-        <input type="number" id="pduracion" name="pduracion"> <br><br>
+        <input type="number" id="pduracion" name="pduracion"><br> 
+
+        <label>Seleccionar imagen del proyecto</label><br>
+        <input type="file" name="filep"><br><br>
+
         <div align="center">
           <button class="button">Aceptar</button>
         </div>
