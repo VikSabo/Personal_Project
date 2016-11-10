@@ -1,75 +1,4 @@
-/*=============================================================
-    Authour: Víctor Saborío hernández 
 
-
-    Proyecto programado para el curso Introducción al desarrollo de aplicaciones
-    Web, 2016.
-   
-    ========================================================  */
-
-/*=======================================
-    ESTILO GENERAL
-==================================================*/
-
-body {
-    margin: 0;
-    background-image:url(https://s-media-cache-ak0.pinimg.com/564x/c3/63/1c/c3631c8b3ba673f35ed6590bae1a35ae.jpg);
-}
-
-/*=======================================
-    ESTILO NAVEGACIÓN
-==================================================*/
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 15%;
-    background-color: #BEDA4F;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-}
-
-li a {
-	font-family:"Comic Sans MS", cursive, sans-serif !important;
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-li a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-}
-
-
-/*=======================================
-    IMAGEN
-==================================================*/
-.avatar {
-    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
-    background-image: url('https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg');
-    
-    /* Dibuja un contenedor cuadraro */
-    width: 150px;
-    height: 150px;
-
-    /* llena el contenedor, mantiene el aspecto radio, y lo recorta para que quepa dentro */
-    background-size: cover;
-
-    /* centra la imagen de manera vertical y horizontal */
-    background-position: center;
-
-    /* round the edges to a circle with border radius 1/2 container size */
-    border-radius: 50%;
-}
 
 /*=======================================
     ESTILO ENTRADA DE DATOS
@@ -210,10 +139,4 @@ label{
 	font-family:"Comic Sans MS", cursive, sans-serif !important;
     font-weight: bold;
     color: #C10E29;
-}
-
-footer{
-    text-align: center;
-    color: #FFFFFF;
-    background: #000000;
 }

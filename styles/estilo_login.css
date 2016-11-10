@@ -62,7 +62,7 @@ input[type=button], input[type=submit], input[type=reset] {
 ==================================================*/
 .avatar {
     /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
-    background-image: url('https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg');
+    background-image: url('../images/mii.jpg');
     
     /* Dibuja un contenedor cuadraro */
     width: 150px;
