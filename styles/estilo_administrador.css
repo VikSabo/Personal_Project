@@ -115,28 +115,3 @@ input:checked {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
-
-
-/*=======================================
-    ESTILO FUENTES
-==================================================*/
-h1 {
-	font-family:"Comic Sans MS", cursive, sans-serif !important;
-    font-weight: bold;
-    text-align: center;
-    color: #22953F;
-}
-
-h3 {
-    font-family:"Comic Sans MS", cursive, sans-serif !important;
-    font-weight: bold;
-    text-align: center;
-    color: #22953F;
-}
-
-label{
-	font-family:"Comic Sans MS", cursive, sans-serif !important;
-    font-weight: bold;
-    color: #C10E29;
-}

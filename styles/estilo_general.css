@@ -70,6 +70,30 @@ li a:hover:not(.active) {
     /* round the edges to a circle with border radius 1/2 container size */
     border-radius: 50%;
 }
+
+/*=======================================
+    ESTILO FUENTES
+==================================================*/
+h1 {
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: #22953F;
+}
+
+h3 {
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: #22953F;
+}
+
+label{
+    font-family:"Comic Sans MS", cursive, sans-serif !important;
+    font-weight: bold;
+    color: #C10E29;
+}
+
 /*=========================
   Massage handle
  ================= */

@@ -80,7 +80,7 @@
         <div class="avatar">
         </div><br>
       </div>
-      <li><a href="inbox.html">Bandeja de Entrada</a></li>
+      <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a class="active" href="administrador.html">Portafolio de Proyectos</a></li>
       <li><a href="edit_infopersonal.html">Información personal</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
