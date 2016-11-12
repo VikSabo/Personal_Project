@@ -11,6 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/estilo_general.css">
     <link rel="stylesheet" type="text/css" href="styles/estilo_administrador.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript">
+    $(document).ready(function(){
+        $("a.delete").click(function(e){
+            if(!confirm('Estas seguro que desea eliminar esta información?')){
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        });
+    });
+    </script>
   </head>
   <body>
     <ul>
@@ -66,7 +78,7 @@
 
             echo '<td><a href="editar_proyecto.php?id=' . $row['id_proyecto'] . '">Editar</a></td>';
 
-            echo '<td><a href="eliminar_proyecto.php?id=' . $row['id_proyecto'] . '">Eliminar</a></td>';
+            echo '<td><a href="eliminar_proyecto.php?id=' . $row['id_proyecto'] . '" class="delete">Eliminar</a></td>';
 
             echo "</tr>";
           }

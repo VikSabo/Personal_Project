@@ -117,7 +117,7 @@
 				    // once saved, redirect back to the view page
 					header("Location: ver_informacion.php");
 				} else {
-				    echo "Error updating record: " . $conn->error;
+				    echo "Error updating record: " . $connection->error;
 				}
 			}
 		} else {
