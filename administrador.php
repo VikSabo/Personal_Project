@@ -81,8 +81,8 @@
         </div><br>
       </div>
       <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
-      <li><a class="active" href="administrador.html">Portafolio de Proyectos</a></li>
-      <li><a href="edit_infopersonal.html">Información personal</a></li>
+      <li><a class="active" href="administrador.php">Portafolio de Proyectos</a></li>
+      <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
