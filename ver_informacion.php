@@ -34,11 +34,16 @@
       <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a href="administrador.php">Portafolio de Proyectos</a></li>
       <li><a class="active" href="ver_informacion.php">Ver Información Proyectos</a></li>
+      <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
-    <div style="margin-left:18%;padding:1px 16px;height:1000px;">
-      <h1>Administrador - Víctor Saborío Hernández</h1>
+    <div id="elemento">
+      <div class="header">
+        <img src="https://cdn3.iconfinder.com/data/icons/stroke/53/Paper-512.png" alt="logo" />
+        <h1>Ver Información Proyectos</h1>
+      </div>
+      <br><br><br>
       <?php 
           $sql = "SELECT * FROM `proyecto`";
           $result = mysqli_query($connection, $sql);

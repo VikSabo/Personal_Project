@@ -25,13 +25,17 @@
       <li><a class="active" href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a href="administrador.php">Portafolio de Proyectos</a></li>
       <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
+      <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
-    <div style="margin-left:18%;padding:1px 16px;height:1000px;">
-      <h1>Administrador - Víctor Saborío Hernández</h1>
-          <br>
-          <table align="center" class="demo">
+    <div id="elemento">
+      <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/90/Google_Inbox_logo.png" alt="logo" />
+        <h1>Bandeja de Entrada</h1>
+      </div>
+          <br><br><br>
+          <table align="left" class="demo">
               <caption>Bandeja de Entrada</caption>
               <tr>
               <th>Nombre</th>

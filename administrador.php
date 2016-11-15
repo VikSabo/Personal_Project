@@ -83,11 +83,16 @@
       <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a class="active" href="administrador.php">Portafolio de Proyectos</a></li>
       <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
+      <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
-    <div style="margin-left:18%;padding:1px 16px;height:1000px;">
-      <h1>Administrador - Víctor Saborío Hernández</h1>
+    <div id="elemento">
+      <div class="header">
+        <img src="https://emprendemiestrategia.files.wordpress.com/2012/03/portafolio1.png" alt="logo" />
+        <h1>Portafolio de Proyectos</h1>
+      </div>
+      <br><br><br>
       <form action="" method="post" enctype="multipart/form-data">
         <label for="pname">Nombre del Proyecto</label>
         <input type="text" id="pname" name="pname"><br>

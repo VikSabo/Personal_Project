@@ -32,6 +32,7 @@
 	      <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
 	      <li><a href="administrador.php">Portafolio de Proyectos</a></li>
 	      <li><a class="active" href="ver_informacion.php">Ver Información Proyectos</a></li>
+	      <li><a href="crear_profesor.php">Añadir Profesor</a></li>
 	      <li><a href="logout.php">Cerrar Sesión</a></li>
 	    </ul>
 		<?php
@@ -41,7 +42,7 @@
 				echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
 			}
 		?>
-		<div style="margin-left:18%;padding:1px 16px;height:1000px;">
+		<div id="elemento">
 			<form action="" method="post">
 				<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 

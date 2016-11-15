@@ -20,9 +20,10 @@
     font-family: sans-serif;
     font-weight: normal;
     font-size: 20px;
-    border:1px solid #C0C0C0;
-    padding:5px;
-    background:#FF8000;
+    border: 1px solid #C0C0C0;
+    padding: 5px;
+    background: #8AD483;
+    color: blue;
 }
 .demo td {
     border:1px solid #C0C0C0;
