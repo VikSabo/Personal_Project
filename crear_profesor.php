@@ -44,7 +44,10 @@
     </ul>
 
     <div id="elemento">
-      <h1>Administrador - Víctor Saborío Hernández</h1>
+      <div class="header">
+        <img src="http://image.flaticon.com/icons/png/512/46/46139.png" alt="logo" />
+        <h1>Agregar Profesor</h1>
+      </div><br><br>
       <form action="" method="post" enctype="multipart/form-data">
         <label for="pname">Nombre del Profesor</label>
         <input type="text" id="nombreProfesor" name="nombreProfesor"><br>

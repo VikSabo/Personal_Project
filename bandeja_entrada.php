@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/estilo_bandejaentrada.css">
     <link rel="stylesheet" type="text/css" href="styles/estilo_general.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <ul>
@@ -24,7 +24,7 @@
       </div>
       <li><a class="active" href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a href="administrador.php">Portafolio de Proyectos</a></li>
-      <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
+      <li><a href="ver_informacion.php">Información Proyectos</a></li>
       <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>

@@ -13,13 +13,18 @@
       $selectHorario = mysqli_real_escape_string($connection,$_POST['horarioCurso']);
       $profesorCurso = mysqli_real_escape_string($connection, $_POST['profesorCurso']);
 
-      $sql = "INSERT INTO `curso`(`nombre_curso`, `dia`, `hora`, `ano`, `id_profesor`) VALUES ('$nombreCurso', '$diaCurso', '$selectHorario', '2016','$profesorCurso')";
-      // Insert the data if the query its ok
-      if ($connection->query($sql) === TRUE) {
-          echo "<div class='success'>El curso se ha creado correctamente</div>";
+      if ($nombreCurso == "" || $diaCurso == "" || $selectHorario == "" || $profesorCurso == "") {
+        echo "<div class='error'>Error: Debes llenar todos los campos para crear un nuevo curso</div>";
       } else {
-          echo "Error: " . $sql . "<br>" . $connection->error;
+        $sql = "INSERT INTO `curso`(`nombre_curso`, `dia`, `hora`, `ano`, `id_profesor`) VALUES ('$nombreCurso', '$diaCurso', '$selectHorario', '2016','$profesorCurso')";
+        // Insert the data if the query its ok
+        if ($connection->query($sql) === TRUE) {
+            echo "<div class='success'>El curso se ha creado correctamente</div>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $connection->error;
+        }
       }
+
     } else {
       $nombreProyecto = mysqli_real_escape_string($connection, $_POST['pname']);
       $selectNewCurso = mysqli_real_escape_string($connection,$_POST['newCurso']);
@@ -37,15 +42,18 @@
 
       $direccionTotal = "images_projects/".$nombreImagen;
 
-      
-      // Query to insert data
-      $sql = "INSERT INTO `proyecto`(`nombre_proyecto`, `id_curso`, `descripcion`, `tipo_proyecto`, `tecnología_usada`, `duración`, `imagen`) VALUES ('$nombreProyecto','$selectNewCurso','$descripcionProyecto', '$selectTipoProyecto', '$selectTecnologia', '$duracionProyecto','$direccionTotal')";
-
-      // Insert the data if the query its ok
-      if ($connection->query($sql) === TRUE) {
-          echo "<div class='success'>El Proyecto se ha creado correctamente</div>";
+      if ($nombreProyecto == "" || $selectNewCurso == "" || $descripcionProyecto == "" || !isset($selectTipoProyecto) || !isset($selectTecnologia) || $duracionProyecto == "") {
+        echo "<div class='error'>Error: Debes llenar todos los campos con (*) para crear un nuevo proyecto</div>";
       } else {
-          echo "Error: " . $sql . "<br>" . $connection->error;
+        // Query to insert data
+        $sql = "INSERT INTO `proyecto`(`nombre_proyecto`, `id_curso`, `descripcion`, `tipo_proyecto`, `tecnología_usada`, `duración`, `imagen`) VALUES ('$nombreProyecto','$selectNewCurso','$descripcionProyecto', '$selectTipoProyecto', '$selectTecnologia', '$duracionProyecto','$direccionTotal')";
+
+        // Insert the data if the query its ok
+        if ($connection->query($sql) === TRUE) {
+            echo "<div class='success'>El Proyecto se ha creado correctamente</div>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $connection->error;
+        }
       }
     }
   }
@@ -94,10 +102,10 @@
       </div>
       <br><br><br>
       <form action="" method="post" enctype="multipart/form-data">
-        <label for="pname">Nombre del Proyecto</label>
+        <label for="pname">Nombre del Proyecto *</label>
         <input type="text" id="pname" name="pname"><br>
 
-        <label for="cname">Curso</label>
+        <label for="cname">Curso *</label>
         <div class="select_style">
           <select id="newCurso" name="newCurso">
             <?php 
@@ -147,16 +155,16 @@
         </div><br>
 
 
-        <label>Descripción</label>
+        <label>Descripción *</label>
         <textarea name="descripcion" placeholder="Descripción del proyecto" ></textarea><br>
 
-        <label>Tipo Proyecto</label><br>
-        <input type="radio" value="investigacion" name="tipo"> Investigación<br>
-        <input type="radio" value="proyecto" name="tipo"> Proyecto Programado<br>
-        <input type="radio" value="individual" name="tipo"> Individual<br>
-        <input type="radio" value="grupal" name="tipo"> Grupal<br>
+        <label>Tipo Proyecto *</label><br>
+        <input type="radio" value="Investigación" name="tipo"> Investigación<br>
+        <input type="radio" value="Proyecto" name="tipo"> Proyecto Programado<br>
+        <input type="radio" value="Individual" name="tipo"> Individual<br>
+        <input type="radio" value="Grupal" name="tipo"> Grupal<br>
 
-        <br><label>Tecnologías utilizadas</label><br>
+        <br><label>Tecnologías utilizadas *</label><br>
         <div>
           <?php 
             $sql = "SELECT nombre_tecnologia FROM tecnologias";
@@ -166,10 +174,6 @@
             }
           ?>
         </div>
-        <!--<input type="checkbox" value="php" name="check_list[]"> PHP<br>
-        <input type="checkbox" value="css" name="check_list[]"> CSS<br>
-        <input type="checkbox" value="js" name="check_list[]"> Javascript<br>
-        <input type="checkbox" value="mysql" name="check_list[]"> MySQL<br>-->
 
         <br><label>Duración del proyecto(cantidad de días) *Solamente acepta números</label>
         <input type="number" id="pduracion" name="pduracion"><br> 

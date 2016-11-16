@@ -101,7 +101,7 @@
 
 			$imagen = mysql_real_escape_string(htmlspecialchars($_POST['imagen']));
 
-			// check that firstname/lastname fields are both filled in
+			// check that nombre_proyecto/id_curso fields are both filled in
 			if ($nombre_proyecto == '' || $id_curso == '') {
 				// generate error message
 				$error = 'ERROR: Por favor llene todos los campos!';

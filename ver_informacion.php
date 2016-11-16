@@ -1,9 +1,3 @@
-<?php 
-  //create a new session
-  include_once('session.php');
-  //connect to database
-  include_once('connection_db.php');
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,8 +18,8 @@
     });
     </script>
   </head>
-  <body>
-    <ul>
+<body>
+	<ul>
       <br>
       <div align="center"> 
         <div class="avatar">
@@ -37,61 +31,102 @@
       <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
+	<div id="elemento">
+	<div class="header">
+        <img src="http://www.itaimich.org.mx/images/ver.png" alt="logo" />
+        <h1>Información de Proyectos</h1>
+    </div><br><br>
+	<?php
 
-    <div id="elemento">
-      <div class="header">
-        <img src="https://cdn3.iconfinder.com/data/icons/stroke/53/Paper-512.png" alt="logo" />
-        <h1>Ver Información Proyectos</h1>
-      </div>
-      <br><br><br>
-      <?php 
-          $sql = "SELECT * FROM `proyecto`";
-          $result = mysqli_query($connection, $sql);
+		//create a new session
+	  	include_once('session.php');
+	  	//connect to database
+	  	include_once('connection_db.php');
+		$start=0;
+		$limit=4;
 
-          echo "<table border='1' cellpadding='10'>";
+		if(isset($_GET['id']))
+		{
+			$id=$_GET['id'];
+			$start=($id-1)*$limit;
+		}
+		else{
+			$id=1;
+		}
+		//Fetch from database first 10 items which is its limit. For that when page open you can see first 10 items. 
+		$query = mysqli_query($connection,"select * from `proyecto` LIMIT $start, $limit");
 
-          echo "<tr>
-                  <th>ID</th>
-                  <th>Nombre Proyecto</th>
-                  <th>Descripción</th> 
-                  <th>Tipo Proyecto</th>
-                  <th>Tecnología Usada</th>
-                  <th>Duración</th>
-                  <th>Imagen</th>
-                </tr>";
+	?>
+	<table border='1' cellpadding='10'>
+  		<tr>
+          <th>ID</th>
+          <th>Nombre Proyecto</th>
+          <th>Descripción</th> 
+          <th>Tipo Proyecto</th>
+          <th>Tecnología Usada</th>
+          <th>Duración</th>
+          <th>Imagen</th>
+        </tr>
+	<?php
+		//print 10 items
+		while($result = mysqli_fetch_array($query))
+		{
+			echo "<tr>";
 
-          // loop through results of database query, displaying them in the table
+	        echo '<td>' . $result['id_proyecto'] . '</td>';
 
-          while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
-            // echo out the contents of each row into a table
+	        echo '<td>' . $result['nombre_proyecto'] . '</td>';
 
-            echo "<tr>";
+	        echo '<td>' . $result['descripcion'] . '</td>';
 
-            echo '<td>' . $row['id_proyecto'] . '</td>';
+	        echo '<td>' . $result['tipo_proyecto'] . '</td>';
 
-            echo '<td>' . $row['nombre_proyecto'] . '</td>';
+	        echo '<td>' . $result['tecnología_usada'] . '</td>';
 
-            echo '<td>' . $row['descripcion'] . '</td>';
+	        echo '<td>' . $result['duración'] . '</td>';
 
-            echo '<td>' . $row['tipo_proyecto'] . '</td>';
+	        echo '<td>' . $result['imagen'] . '</td>';
 
-            echo '<td>' . $row['tecnología_usada'] . '</td>';
+	        echo '<td><a href="editar_proyecto.php?id=' . $result['id_proyecto'] . '">Editar</a></td>';
 
-            echo '<td>' . $row['duración'] . '</td>';
+	        echo '<td><a href="eliminar_proyecto.php?id=' . $result['id_proyecto'] . '" class="delete">Eliminar</a></td>';
 
-            echo '<td>' . $row['imagen'] . '</td>';
-
-            echo '<td><a href="editar_proyecto.php?id=' . $row['id_proyecto'] . '">Editar</a></td>';
-
-            echo '<td><a href="eliminar_proyecto.php?id=' . $row['id_proyecto'] . '" class="delete">Eliminar</a></td>';
-
-            echo "</tr>";
-          }
-          // close table>
-
-          echo "</table>";
-      ?>
-    </div>
-  </body>
+	        echo "</tr>";
+		}
+	?>
+	</table>
+	<div class="pagination clearfix">
+	<?php
+		//fetch all the data from database.
+		$rows = mysqli_num_rows(mysqli_query($connection,"select * from `proyecto`"));
+		//calculate total page number for the given table in the database 
+		$total=ceil($rows/$limit);
+		if($id>1)
+		{
+			//Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+			echo "<a href='?id=".($id-1)."'>Anterior</a>";
+			//echo "<a href='?id=".($id-1)."' class='button'>Anterior</a>";
+		}
+		if($id!=$total)
+		{
+			////Go to previous page to show next 10 items.
+			echo "<a href='?id=".($id+1)."'>Siguiente</a>";
+			//echo "<a href='?id=".($id+1)."' class='button'>Siguiente</a>";
+		}
+	?>
+	<?php
+	//show all the page link with page number. When click on these numbers go to particular page. 
+			for($i=1;$i<=$total;$i++)
+			{
+				if($i==$id) { 
+					echo "<a href='#'>".$i."</a>"; 
+				}
+				else { 
+					echo "<a href='?id=".$i."'>".$i."</a>"; 
+				}
+			}
+	?>
+	</div>
+</div>
+</body>
 </html>
-
