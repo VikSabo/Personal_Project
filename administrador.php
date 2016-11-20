@@ -12,11 +12,12 @@
       $diaCurso = mysqli_real_escape_string($connection, $_POST['diaCurso']);
       $selectHorario = mysqli_real_escape_string($connection,$_POST['horarioCurso']);
       $profesorCurso = mysqli_real_escape_string($connection, $_POST['profesorCurso']);
+      $anoCurso = mysqli_real_escape_string($connection, $_POST['anoCurso']);
 
       if ($nombreCurso == "" || $diaCurso == "" || $selectHorario == "" || $profesorCurso == "") {
         echo "<div class='error'>Error: Debes llenar todos los campos para crear un nuevo curso</div>";
       } else {
-        $sql = "INSERT INTO `curso`(`nombre_curso`, `dia`, `hora`, `ano`, `id_profesor`) VALUES ('$nombreCurso', '$diaCurso', '$selectHorario', '2016','$profesorCurso')";
+        $sql = "INSERT INTO `curso`(`nombre_curso`, `dia`, `hora`, `ano`, `id_profesor`) VALUES ('$nombreCurso', '$diaCurso', '$selectHorario', '$anoCurso','$profesorCurso')";
         // Insert the data if the query its ok
         if ($connection->query($sql) === TRUE) {
             echo "<div class='success'>El curso se ha creado correctamente</div>";
@@ -92,6 +93,8 @@
       <li><a class="active" href="administrador.php">Portafolio de Proyectos</a></li>
       <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
       <li><a href="crear_profesor.php">Añadir Profesor</a></li>
+      <li><a href="crear_interes.php">Añadir Interes</a></li>
+      <li><a href="ver_intereses.php">Ver Interes</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
@@ -150,6 +153,20 @@
                 ?>
               </select>
               <span></span>
+            </div><br>
+
+            <label for="Ano">Seleccione el año que recibió el curso</label><br>
+            <div class="select_style">
+              <select id="year" name="anoCurso"></select><span></span>
+              <script type="text/javascript">
+                var start = 2012;
+                var end = new Date().getFullYear();
+                var options = "";
+                for(var year = start ; year <=end; year++){
+                  options += "<option value="+ year +">" + year +"</option>";
+                }
+                document.getElementById("year").innerHTML = options;
+              </script>             
             </div><br>
             <input type="submit" name="btnAgregarCurso" class="button" value="Crear Curso" />
         </div><br>

@@ -27,16 +27,16 @@
       </div>
       <li><a href="bandeja_entrada.php">Bandeja de Entrada</a></li>
       <li><a href="administrador.php">Portafolio de Proyectos</a></li>
-      <li><a class="active" href="ver_informacion.php">Ver Información Proyectos</a></li>
+      <li><a href="ver_informacion.php">Ver Información Proyectos</a></li>
       <li><a href="crear_profesor.php">Añadir Profesor</a></li>
       <li><a href="crear_interes.php">Añadir Interes</a></li>
-      <li><a href="ver_intereses.php">ver Interes</a></li>
+      <li><a class="active" href="ver_intereses.php">Ver Interes</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 	<div id="elemento">
 	<div class="header">
-        <img src="http://www.itaimich.org.mx/images/ver.png" alt="logo" />
-        <h1>Información de Proyectos</h1>
+        <img src="https://cdn4.iconfinder.com/data/icons/simplicio/128x128/file_edit.png" alt="logo" />
+        <h1>Intereses Personales</h1>
     </div><br><br>
 	<?php
 
@@ -56,18 +56,14 @@
 			$id=1;
 		}
 		//Fetch from database first 10 items which is its limit. For that when page open you can see first 10 items. 
-		$query = mysqli_query($connection,"select * from `proyecto` LIMIT $start, $limit");
+		$query = mysqli_query($connection,"select * from `preferencias` LIMIT $start, $limit");
 
 	?>
 	<table border='1' cellpadding='10'>
   		<tr>
           <th>ID</th>
-          <th>Nombre Proyecto</th>
-          <th>Descripción</th> 
-          <th>Tipo Proyecto</th>
-          <th>Tecnología Usada</th>
-          <th>Duración</th>
-          <th>Imagen</th>
+          <th>Interes Personal</th>
+          <th>Hobbie</th>
         </tr>
 	<?php
 		//print 10 items
@@ -75,23 +71,15 @@
 		{
 			echo "<tr>";
 
-	        echo '<td>' . $result['id_proyecto'] . '</td>';
+	        echo '<td>' . $result['id_preferencia'] . '</td>';
 
-	        echo '<td>' . $result['nombre_proyecto'] . '</td>';
+	        echo '<td>' . $result['intereses_personales'] . '</td>';
 
-	        echo '<td>' . $result['descripcion'] . '</td>';
+	        echo '<td>' . $result['hobbies'] . '</td>';
 
-	        echo '<td>' . $result['tipo_proyecto'] . '</td>';
+	        echo '<td><a href="editar_interes.php?id=' . $result['id_preferencia'] . '">Editar</a></td>';
 
-	        echo '<td>' . $result['tecnología_usada'] . '</td>';
-
-	        echo '<td>' . $result['duración'] . '</td>';
-
-	        echo '<td>' . $result['imagen'] . '</td>';
-
-	        echo '<td><a href="editar_proyecto.php?id=' . $result['id_proyecto'] . '">Editar</a></td>';
-
-	        echo '<td><a href="eliminar_proyecto.php?id=' . $result['id_proyecto'] . '" class="delete">Eliminar</a></td>';
+	        echo '<td><a href="eliminar_interes.php?id=' . $result['id_preferencia'] . '" class="delete">Eliminar</a></td>';
 
 	        echo "</tr>";
 		}
@@ -100,7 +88,7 @@
 	<div class="pagination clearfix">
 	<?php
 		//fetch all the data from database.
-		$rows = mysqli_num_rows(mysqli_query($connection,"select * from `proyecto`"));
+		$rows = mysqli_num_rows(mysqli_query($connection,"select * from `preferencias`"));
 		//calculate total page number for the given table in the database 
 		$total=ceil($rows/$limit);
 		if($id>1)

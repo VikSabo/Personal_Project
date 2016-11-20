@@ -26,6 +26,8 @@
       <li><a href="administrador.php">Portafolio de Proyectos</a></li>
       <li><a href="ver_informacion.php">Información Proyectos</a></li>
       <li><a href="crear_profesor.php">Añadir Profesor</a></li>
+      <li><a href="crear_interes.php">Añadir Interes</a></li>
+      <li><a href="ver_intereses.php">Ver Interes</a></li>
       <li><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 
